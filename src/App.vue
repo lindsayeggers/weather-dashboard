@@ -1,12 +1,38 @@
 <template>
   <div id="app">
-    <div id="nav">
-      <router-link to="/">Home</router-link> |
-      <router-link to="/about">About</router-link>
-    </div>
-    <router-view />
+    <p>This component's code is in {{ filename }}'</p>
+    <Content :weatherData="weatherData" />
   </div>
 </template>
+
+<script>
+import Content from "@/components/Content.vue";
+
+export default {
+  components: {
+    Content
+  },
+  data() {
+    return {
+      filename: "App.vue",
+      weatherData: {
+        location: "California",
+        temperature: {
+          current: "35 C"
+        },
+        highlights: {
+          uvindex: "3",
+          windstatus: {
+            speed: "20 km/h",
+            direction: "N-E"
+          },
+          visibility: "12 km"
+        }
+      }
+    };
+  }
+};
+</script>
 
 <style lang="scss">
 #app {
